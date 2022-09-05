@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  Alert
 } from 'react-native';
 import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -50,6 +51,7 @@ export default class App extends React.Component {
           <TouchableOpacity
             style={styles.goButton}
             onPress={() => {
+            
               var word = this.state.text.toLowerCase().trim();
               db[word] ? (
               this.setState({ chunks: db[word].chunks }),
@@ -60,14 +62,7 @@ export default class App extends React.Component {
             <Text style={styles.buttonText}>IR</Text>
           </TouchableOpacity>
           <Text style={styles.displayText}>{this.state.displayText}</Text>
-          <View>
-            {this.state.chunks.map((item) => {
-              return (
-                <TouchableOpacity style={styles.chunkButton}>
-                  <Text style={styles.displayText}>{item}</Text>
-                </TouchableOpacity>
-              );
-            })}
+         
             <View>
               {this.state.chunks.map((item, index) => {
                 return (
@@ -78,8 +73,7 @@ export default class App extends React.Component {
                   />
                 );
               })}
-            </View>
-          </View>
+           </View>
         </View>
       </SafeAreaProvider>
     );

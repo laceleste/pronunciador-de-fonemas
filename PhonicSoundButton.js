@@ -6,7 +6,7 @@ export default class PhonicSoundButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pressedButtonIndex: '',
+      pressButtonIndex: '',
     };
   }  
   playSound = async (soundChunk) => {
